@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Goal List</h1>
+
+    <p>
+        <a href="/">Dashboard</a> |
+        <a href="/goals/create/">Create Goal</a> |
+        <a href="/tasks/">View Tasks</a> |
+        <a href="/logout/">Logout</a>
+    </p>
+
+    {% if goals %}
+        <ul>
+            {% for goal in goals %}
+                <li>{{ goal.title }} - {{ goal.status }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No goals yet.</p>
+    {% endif %}
+</body>
+</html>

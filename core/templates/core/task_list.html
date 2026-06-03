@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Task List</h1>
+
+    <p>
+        <a href="/">Dashboard</a> |
+        <a href="/tasks/create/">Create Task</a> |
+        <a href="/goals/">View Goals</a> |
+        <a href="/logout/">Logout</a>
+    </p>
+
+    {% if tasks %}
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task.title }} - {{ task.status }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks yet.</p>
+    {% endif %}
+</body>
+</html>
